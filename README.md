@@ -1,43 +1,50 @@
-# Three-body Problem Solver in 3D
+# Three-Body Motion Simulation
 
-This repository contains a MATLAB implementation of a solver for the Three-body problem in 3D. The Three-body problem is a classic problem in celestial mechanics that involves determining the motion of three objects interacting gravitationally with each other.
+This repository contains MATLAB code for simulating the motion of three bodies under the influence of gravity. The simulation calculates and visualizes the trajectories of three interacting bodies over time.
 
-## About the Code
+## Simulation Details
 
-The code provided in this repository offers a numerical solution to the Three-body problem in three dimensions. It simulates the motion of three masses under the influence of gravitational forces and plots their trajectories.
+The simulation is based on Newton's law of universal gravitation, which states that every particle in the universe attracts every other particle with a force that is directly proportional to the product of their masses and inversely proportional to the square of the distance between them.
 
-The main file is `three_body_problem.m`, which contains the code for simulating the motion and plotting the trajectories. The code utilizes Newton's law of universal gravitation to calculate the gravitational forces acting on each mass and updates their positions and velocities accordingly.
+The equations used in the simulation are as follows:
+
+```
+F = G * ((m1 * m2) / r^2)
+```
+
+Where:
+- `F` is the gravitational force between two bodies.
+- `G` is the gravitational constant.
+- `m1` and `m2` are the masses of the bodies.
+- `r` is the distance between the bodies.
+
+To calculate the motion of the bodies, the simulation divides the total time into small increments and updates the positions and velocities of the bodies at each step using the following equations:
+
+```
+vx1 = vx1 - (G * m2 * (x1 - x2)) / r12^2 * dt - (G * m3 * (x1 - x3)) / r13^2 * dt
+vy1 = vy1 - (G * m2 * (y1 - y2)) / r12^2 * dt - (G * m3 * (y1 - y3)) / r13^2 * dt
+vz1 = vz1 - (G * m2 * (z1 - z2)) / r12^2 * dt - (G * m3 * (z1 - z3)) / r13^2 * dt
+```
+
+```
+x1 = x1 + vx1 * dt
+y1 = y1 + vy1 * dt
+z1 = z1 + vz1 * dt
+```
+
+Similarly, the positions and velocities of the other two bodies (`m2` and `m3`) are updated using analogous equations.
 
 ## Usage
 
-To use this code, you need MATLAB installed on your system. Follow the steps below to run the simulation:
+To use this simulation, follow these steps:
 
-1. Clone this repository to your local machine.
-2. Open MATLAB and navigate to the cloned repository directory.
-3. Open the `three_body_problem.m` file in MATLAB.
-4. Modify the initial conditions and parameters if desired.
-5. Run the script in MATLAB.
-
-After running the script, the simulation will compute the trajectories of the three masses and plot them in a 3D graph. The resulting plot will display the motion of each mass over time.
-
-Feel free to experiment with different initial conditions and parameters to observe different outcomes of the Three-body problem.
-
-## Contributing
-
-Contributions to this project are welcome. If you find any issues or have suggestions for improvements, please open an issue or submit a pull request. Your feedback and contributions are highly appreciated!
+1. Clone or download this repository to your local machine.
+2. Open MATLAB and navigate to the repository's directory.
+3. Run the `three_body_simulation.m` file.
+4. Follow the prompts to provide the necessary input parameters, such as masses, initial positions, velocities, end time, and increment.
+5. The simulation will calculate the trajectories and generate a 3D plot of the motion of the three bodies.
+6. Additionally, a video file named `three_body_motion.mp4` will be saved, showcasing the motion of the bodies over time.
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute this code for personal or commercial purposes.
-
-## Acknowledgements
-
-This code is inspired by the Three-body problem and the concept of gravitational interactions in physics. The implementation provided here is a basic numerical solver, and it may not account for all possible scenarios or edge cases of the Three-body problem. Further research and advanced techniques may be required for more accurate and comprehensive simulations.
-
-If you use this code or find it helpful, please consider giving credit by citing this repository or providing a link to it.
-
-## References
-
-- [Wikipedia - Three-body Problem](https://en.wikipedia.org/wiki/Three-body_problem)
-- [Gravitational N-Body Simulations - Scientific Computing](https://journals.sagepub.com/doi/abs/10.1177/1094342009105996)
-
+This project is licensed under the [MIT License](LICENSE).
