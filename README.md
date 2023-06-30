@@ -2,6 +2,8 @@
 
 This repository contains MATLAB code for simulating the motion of three bodies under the influence of gravity. The simulation calculates and visualizes the trajectories of three interacting bodies over time.
 
+![image](https://github.com/victormeloasm/3D3Bodyproblem/assets/15617527/5415aef4-5c0f-4292-94dd-2e64950d5727)
+
 ## Simulation Details
 
 The simulation is based on Newton's law of universal gravitation, which states that every particle in the universe attracts every other particle with a force that is directly proportional to the product of their masses and inversely proportional to the square of the distance between them.
